@@ -6,10 +6,10 @@
     "plugin:jest/recommended",
     "prettier",
     "prettier/react",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
   ],
-  "plugins": ["react', '@typescript-eslint', 'jest"],
+  "plugins": ["react", "@typescript-eslint", "jest"],
   "env": {
     "browser": true,
     "es6": true,
@@ -21,15 +21,26 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
   "rules": {
     "linebreak-style": "off",
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "@typescript-eslint/no-unused-expressions": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

@@ -1,35 +1,34 @@
-import { createSelector } from 'reselect';
-import { StateAll } from '../models';
+import { createSelector } from 'reselect'
+import { StateAll } from '../models'
 import {
   CustomerState,
   initialCustomerState,
   initialPaginationState,
-} from './model';
+} from './model'
 
-const rootSelector = (state: StateAll) =>
-  state.customer || initialCustomerState;
+const rootSelector = (state: StateAll) => state.customer || initialCustomerState
 
 export const getCustomerList = createSelector(
   rootSelector,
   (customerState: CustomerState) => {
     return customerState.list
       ? customerState.list.response
-      : initialCustomerState.list.response;
+      : initialCustomerState.list.response
   }
-);
+)
 
 export const getCustomerPagination = createSelector(
   rootSelector,
   (customerState: CustomerState) => {
     return customerState.list
       ? customerState.list.response?.data?.pagination
-      : { ...initialPaginationState };
+      : { ...initialPaginationState }
   }
-);
+)
 
 export const getCustomerDetails = createSelector(
   rootSelector,
   (customerState: CustomerState) => {
-    return customerState.details.response;
+    return customerState.details.response
   }
-);
+)

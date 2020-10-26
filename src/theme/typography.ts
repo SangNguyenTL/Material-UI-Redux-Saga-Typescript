@@ -32,6 +32,6 @@ const typography = {
   overline: {
     fontWeight: 500,
   },
-};
+}
 
-export default typography;
+export default typography

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
+import React from 'react'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import * as Yup from 'yup'
+import { Formik } from 'formik'
 import {
   Box,
   Button,
@@ -11,10 +11,10 @@ import {
   TextField,
   Typography,
   makeStyles,
-} from '@material-ui/core';
-import FacebookIcon from 'src/icons/Facebook';
-import GoogleIcon from 'src/icons/Google';
-import Page from 'src/components/Page';
+} from '@material-ui/core'
+import FacebookIcon from 'src/icons/Facebook'
+import GoogleIcon from 'src/icons/Google'
+import Page from 'src/components/Page'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,15 +23,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3),
   },
-}));
+}))
 
-const LoginView = () => {
-  const classes = useStyles();
-  const navigate = useNavigate();
+const LoginView: React.FC = () => {
+  const classes = useStyles()
+  const navigate = useNavigate()
 
   return (
     <Page className={classes.root} title="Login">
-      <Box display="flex" flexDirection="column" height="100%" justifyContent="center">
+      <Box
+        display="flex"
+        flexDirection="column"
+        height="100%"
+        justifyContent="center"
+      >
         <Container maxWidth="sm">
           <Formik
             initialValues={{
@@ -46,7 +51,7 @@ const LoginView = () => {
               password: Yup.string().max(255).required('Password is required'),
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              navigate('/app/dashboard', { replace: true })
             }}
           >
             {({
@@ -63,7 +68,11 @@ const LoginView = () => {
                   <Typography color="textPrimary" variant="h2">
                     Sign in
                   </Typography>
-                  <Typography color="textSecondary" gutterBottom variant="body2">
+                  <Typography
+                    color="textSecondary"
+                    gutterBottom
+                    variant="body2"
+                  >
                     Sign in on the internal platform
                   </Typography>
                 </Box>
@@ -93,7 +102,11 @@ const LoginView = () => {
                   </Grid>
                 </Grid>
                 <Box mt={3} mb={1}>
-                  <Typography align="center" color="textSecondary" variant="body1">
+                  <Typography
+                    align="center"
+                    color="textSecondary"
+                    variant="body1"
+                  >
                     or login with email address
                   </Typography>
                 </Box>
@@ -147,7 +160,7 @@ const LoginView = () => {
         </Container>
       </Box>
     </Page>
-  );
-};
+  )
+}
 
-export default LoginView;
+export default LoginView

@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
 import {
   Avatar,
@@ -11,8 +11,8 @@ import {
   Typography,
   makeStyles,
   colors,
-} from '@material-ui/core';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+} from '@material-ui/core'
+import InsertChartIcon from '@material-ui/icons/InsertChartOutlined'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,17 +23,17 @@ const useStyles = makeStyles(() => ({
     height: 56,
     width: 56,
   },
-}));
+}))
 
 type TasksProgressProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const TasksProgress: React.FC<TasksProgressProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const TasksProgress: React.FC<TasksProgressProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Grid container justify="space-between" spacing={3}>
           <Grid item>
@@ -55,7 +55,7 @@ const TasksProgress: React.FC<TasksProgressProps> = ({ className, ...rest }) => 
         </Box>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default TasksProgress;
+export default TasksProgress

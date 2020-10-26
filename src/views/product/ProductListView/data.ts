@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid'
 
 export default [
   {
@@ -31,7 +31,8 @@ export default [
   {
     id: uuid(),
     createdAt: '04/04/2019',
-    description: 'Lyft is an on-demand transportation company based in San Francisco, California.',
+    description:
+      'Lyft is an on-demand transportation company based in San Francisco, California.',
     media: '/static/images/products/product_4.png',
     title: 'Lyft',
     totalDownloads: '406',
@@ -39,7 +40,8 @@ export default [
   {
     id: uuid(),
     createdAt: '04/04/2019',
-    description: 'GitHub is a web-based hosting service for version control of code using Git.',
+    description:
+      'GitHub is a web-based hosting service for version control of code using Git.',
     media: '/static/images/products/product_5.png',
     title: 'GitHub',
     totalDownloads: '835',
@@ -53,4 +55,4 @@ export default [
     title: 'Squarespace',
     totalDownloads: '835',
   },
-];
+]

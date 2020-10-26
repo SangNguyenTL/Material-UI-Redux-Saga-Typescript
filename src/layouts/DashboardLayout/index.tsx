@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core';
-import NavBar from './NavBar';
-import TopBar from './TopBar';
+import React, { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
+import NavBar from './NavBar'
+import TopBar from './TopBar'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,16 +31,19 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     overflow: 'auto',
   },
-}));
+}))
 
-const DashboardLayout = () => {
-  const classes = useStyles();
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+const DashboardLayout: React.FC = () => {
+  const classes = useStyles()
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
     <div className={classes.root}>
       <TopBar onMobileNavOpen={() => setMobileNavOpen(true)} />
-      <NavBar onMobileClose={() => setMobileNavOpen(false)} openMobile={isMobileNavOpen} />
+      <NavBar
+        onMobileClose={() => setMobileNavOpen(false)}
+        openMobile={isMobileNavOpen}
+      />
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
           <div className={classes.content}>
@@ -49,7 +52,7 @@ const DashboardLayout = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardLayout;
+export default DashboardLayout

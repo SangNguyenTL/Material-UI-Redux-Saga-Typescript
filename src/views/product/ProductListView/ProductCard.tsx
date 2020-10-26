@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 import {
   Avatar,
   Box,
@@ -9,9 +9,9 @@ import {
   Grid,
   Typography,
   makeStyles,
-} from '@material-ui/core';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import GetAppIcon from '@material-ui/icons/GetApp';
+} from '@material-ui/core'
+import AccessTimeIcon from '@material-ui/icons/AccessTime'
+import GetAppIcon from '@material-ui/icons/GetApp'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,23 +25,29 @@ const useStyles = makeStyles((theme) => ({
   statsIcon: {
     marginRight: theme.spacing(1),
   },
-}));
+}))
 
 type ProductCardProps = {
-  className?: string;
-  product: any;
-};
+  className?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  product: any
+}
 
-const ProductCard: React.FC<ProductCardProps> = ({ className, product, ...rest }) => {
-  const classes = useStyles();
+const ProductCard: React.FC<ProductCardProps> = ({ className, product }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Box display="flex" justifyContent="center" mb={3}>
           <Avatar alt="Product" src={product.media} variant="square" />
         </Box>
-        <Typography align="center" color="textPrimary" gutterBottom variant="h4">
+        <Typography
+          align="center"
+          color="textPrimary"
+          gutterBottom
+          variant="h4"
+        >
           {product.title}
         </Typography>
         <Typography align="center" color="textPrimary" variant="body1">
@@ -67,7 +73,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ className, product, ...rest }
         </Grid>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

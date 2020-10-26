@@ -1,7 +1,7 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2'
 import {
   Box,
   Card,
@@ -12,38 +12,42 @@ import {
   colors,
   makeStyles,
   useTheme,
-} from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
-import { ChartOptions } from 'chart.js';
+} from '@material-ui/core'
+import LaptopMacIcon from '@material-ui/icons/LaptopMac'
+import PhoneIcon from '@material-ui/icons/Phone'
+import TabletIcon from '@material-ui/icons/Tablet'
+import { ChartOptions } from 'chart.js'
 
 const useStyles = makeStyles(() => ({
   root: {
     height: '100%',
   },
-}));
+}))
 
 type TrafficByDeviceProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const TrafficByDevice: React.FC<TrafficByDeviceProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
-  const theme = useTheme();
+const TrafficByDevice: React.FC<TrafficByDeviceProps> = ({ className }) => {
+  const classes = useStyles()
+  const theme = useTheme()
 
   const data = {
     datasets: [
       {
         data: [63, 15, 22],
-        backgroundColor: [colors.indigo[500], colors.red[600], colors.orange[600]],
+        backgroundColor: [
+          colors.indigo[500],
+          colors.red[600],
+          colors.orange[600],
+        ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white,
       },
     ],
     labels: ['Desktop', 'Tablet', 'Mobile'],
-  };
+  }
 
   const options: ChartOptions = {
     cutoutPercentage: 80,
@@ -64,7 +68,7 @@ const TrafficByDevice: React.FC<TrafficByDeviceProps> = ({ className, ...rest })
       mode: 'index',
       titleFontColor: theme.palette.text.primary,
     },
-  };
+  }
 
   const devices = [
     {
@@ -85,10 +89,10 @@ const TrafficByDevice: React.FC<TrafficByDeviceProps> = ({ className, ...rest })
       icon: PhoneIcon,
       color: colors.orange[600],
     },
-  ];
+  ]
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardHeader title="Traffic by Device" />
       <Divider />
       <CardContent>
@@ -110,7 +114,7 @@ const TrafficByDevice: React.FC<TrafficByDeviceProps> = ({ className, ...rest })
         </Box>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default TrafficByDevice;
+export default TrafficByDevice

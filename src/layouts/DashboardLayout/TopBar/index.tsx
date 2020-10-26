@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import clsx from 'clsx';
+import React, { useState } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
+import clsx from 'clsx'
 
-import { AppBar, Badge, Box, Hidden, IconButton, Toolbar, makeStyles } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
-import InputIcon from '@material-ui/icons/Input';
-import Logo from 'src/components/Logo';
+import {
+  AppBar,
+  Badge,
+  Box,
+  Hidden,
+  IconButton,
+  Toolbar,
+  makeStyles,
+} from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
+import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
+import InputIcon from '@material-ui/icons/Input'
+import Logo from 'src/components/Logo'
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -14,19 +22,19 @@ const useStyles = makeStyles(() => ({
     width: 60,
     height: 60,
   },
-}));
+}))
 
 export type TopBarProps = {
-  className?: string;
-  onMobileNavOpen?: () => void;
-};
+  className?: string
+  onMobileNavOpen?: () => void
+}
 
-const TopBar: React.FC<TopBarProps> = ({ className, onMobileNavOpen, ...rest }) => {
-  const classes = useStyles();
-  const [notifications] = useState([]);
+const TopBar: React.FC<TopBarProps> = ({ className, onMobileNavOpen }) => {
+  const classes = useStyles()
+  const [notifications] = useState([])
 
   return (
-    <AppBar className={clsx(classes.root, className)} elevation={0} {...rest}>
+    <AppBar className={clsx(classes.root, className)} elevation={0}>
       <Toolbar>
         <RouterLink to="/">
           <Logo />
@@ -34,7 +42,11 @@ const TopBar: React.FC<TopBarProps> = ({ className, onMobileNavOpen, ...rest }) 
         <Box flexGrow={1} />
         <Hidden mdDown>
           <IconButton color="inherit">
-            <Badge badgeContent={notifications.length} color="primary" variant="dot">
+            <Badge
+              badgeContent={notifications.length}
+              color="primary"
+              variant="dot"
+            >
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -49,7 +61,7 @@ const TopBar: React.FC<TopBarProps> = ({ className, onMobileNavOpen, ...rest }) 
         </Hidden>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default TopBar;
+export default TopBar

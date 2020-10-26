@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link as RouterLink, useLocation } from 'react-router-dom'
 
 import {
   Avatar,
@@ -10,7 +10,7 @@ import {
   List,
   Typography,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core'
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
@@ -20,14 +20,14 @@ import {
   User as UserIcon,
   UserPlus as UserPlusIcon,
   Users as UsersIcon,
-} from 'react-feather';
-import NavItem from './NavItem';
+} from 'react-feather'
+import NavItem from './NavItem'
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
   jobTitle: 'Senior Developer',
   name: 'Katarina Smith',
-};
+}
 
 const items = [
   {
@@ -70,7 +70,7 @@ const items = [
     icon: AlertCircleIcon,
     title: 'Error',
   },
-];
+]
 
 const useStyles = makeStyles(() => ({
   mobileDrawer: {
@@ -86,22 +86,22 @@ const useStyles = makeStyles(() => ({
     width: 64,
     height: 64,
   },
-}));
+}))
 
 export type NavBarProps = {
-  openMobile: boolean;
-  onMobileClose: () => void;
-};
+  openMobile: boolean
+  onMobileClose: () => void
+}
 
 const NavBar: React.FC<NavBarProps> = ({ onMobileClose, openMobile }) => {
-  const classes = useStyles();
-  const location = useLocation();
+  const classes = useStyles()
+  const location = useLocation()
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
-      onMobileClose();
+      onMobileClose()
     }
-  }, [location.pathname, onMobileClose, openMobile]);
+  }, [location.pathname, onMobileClose, openMobile])
 
   const content = (
     <Box height="100%" display="flex" flexDirection="column">
@@ -123,13 +123,18 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileClose, openMobile }) => {
       <Box p={2}>
         <List>
           {items.map((item) => (
-            <NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} />
+            <NavItem
+              href={item.href}
+              key={item.title}
+              title={item.title}
+              icon={item.icon}
+            />
           ))}
         </List>
       </Box>
       <Box flexGrow={1} />
     </Box>
-  );
+  )
 
   return (
     <>
@@ -145,17 +150,22 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileClose, openMobile }) => {
         </Drawer>
       </Hidden>
       <Hidden mdDown>
-        <Drawer anchor="left" classes={{ paper: classes.desktopDrawer }} open variant="persistent">
+        <Drawer
+          anchor="left"
+          classes={{ paper: classes.desktopDrawer }}
+          open
+          variant="persistent"
+        >
           {content}
         </Drawer>
       </Hidden>
     </>
-  );
-};
+  )
+}
 
 NavBar.defaultProps = {
   onMobileClose: () => {},
   openMobile: false,
-};
+}
 
-export default NavBar;
+export default NavBar

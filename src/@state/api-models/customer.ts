@@ -3,48 +3,48 @@ import {
   CommonResponse,
   SearchRequest,
   PaginationResponse,
-} from './common';
-import { Customer, CustomerForm } from '../models/customer';
+} from './common'
+import { Customer, CustomerForm } from '../models/customer'
 
-export type CustomerListRequest = (SearchRequest & {}) | undefined;
+export type CustomerListRequest = SearchRequest | undefined
 export type CustomerListResponse = CommonResponse & {
   data: {
-    list: Customer[];
-    pagination: PaginationResponse;
-  };
-};
+    list: Customer[]
+    pagination: PaginationResponse
+  }
+}
 
-export type CustomerCreateRequest = CommonRequest & CustomerForm;
+export type CustomerCreateRequest = CommonRequest & CustomerForm
 
 export type CustomerUpdateRequest = CommonResponse &
   CustomerForm & {
-    id: number;
-  };
+    id: number
+  }
 
 export type CustomerCreateResponse = CommonResponse & {
-  data: Customer;
-};
+  data: Customer
+}
 
 export type CustomerUpdateResponse = CommonRequest & {
-  data: Customer;
-};
+  data: Customer
+}
 
 export type CustomerDetailResponse = CommonResponse & {
-  data: Customer;
-};
+  data: Customer
+}
 
 export type CustomerDetailRequest = CommonRequest & {
-  id: string;
-};
+  id: string
+}
 
 export type CustomerDeleteRequest = CommonRequest & {
-  id: string;
-};
+  id: string
+}
 
-export type CustomerDeleteResponse = CommonResponse;
+export type CustomerDeleteResponse = CommonResponse
 
 export type CustomerBulkRequest = {
-  action: string;
-  ids: number[];
-};
-export type CustomerBulkResponse = CommonResponse;
+  action: string
+  ids: number[]
+}
+export type CustomerBulkResponse = CommonResponse

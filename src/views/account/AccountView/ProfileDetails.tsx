@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
+import React, { useState } from 'react'
+import clsx from 'clsx'
 
 import {
   Box,
@@ -11,7 +11,7 @@ import {
   Grid,
   TextField,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const states = [
   {
@@ -26,18 +26,18 @@ const states = [
     value: 'san-francisco',
     label: 'San Francisco',
   },
-];
+]
 
 const useStyles = makeStyles(() => ({
   root: {},
-}));
+}))
 
 export type ProfileDetailsProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className }) => {
+  const classes = useStyles()
   const [values, setValues] = useState({
     firstName: 'Katarina',
     lastName: 'Smith',
@@ -45,17 +45,23 @@ const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className, ...rest }) =
     phone: '',
     state: 'Alabama',
     country: 'USA',
-  });
+  })
 
-  const handleChange = (event: any) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setValues({
       ...values,
       [event.target.name]: event.target.value,
-    });
-  };
+    })
+  }
 
   return (
-    <form autoComplete="off" noValidate className={clsx(classes.root, className)} {...rest}>
+    <form
+      autoComplete="off"
+      noValidate
+      className={clsx(classes.root, className)}
+    >
       <Card>
         <CardHeader subheader="The information can be edited" title="Profile" />
         <Divider />
@@ -146,7 +152,7 @@ const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className, ...rest }) =
         </Box>
       </Card>
     </form>
-  );
-};
+  )
+}
 
-export default ProfileDetails;
+export default ProfileDetails

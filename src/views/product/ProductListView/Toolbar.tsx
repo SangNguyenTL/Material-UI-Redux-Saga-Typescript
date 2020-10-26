@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 import {
   Box,
   Button,
@@ -10,8 +10,8 @@ import {
   InputAdornment,
   SvgIcon,
   makeStyles,
-} from '@material-ui/core';
-import { Search as SearchIcon } from 'react-feather';
+} from '@material-ui/core'
+import { Search as SearchIcon } from 'react-feather'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
   exportButton: {
     marginRight: theme.spacing(1),
   },
-}));
+}))
 
 type ToolbarProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Toolbar: React.FC<ToolbarProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const Toolbar: React.FC<ToolbarProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <div className={clsx(classes.root, className)} {...rest}>
+    <div className={clsx(classes.root, className)}>
       <Box display="flex" justifyContent="flex-end">
         <Button className={classes.importButton}>Import</Button>
         <Button className={classes.exportButton}>Export</Button>
@@ -62,7 +62,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ className, ...rest }) => {
         </Card>
       </Box>
     </div>
-  );
-};
+  )
+}
 
-export default Toolbar;
+export default Toolbar

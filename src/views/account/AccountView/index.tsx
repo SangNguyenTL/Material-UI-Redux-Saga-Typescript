@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, Grid, makeStyles } from '@material-ui/core';
-import Page from 'src/components/Page';
-import Profile from './Profile';
-import ProfileDetails from './ProfileDetails';
+import React from 'react'
+import { Container, Grid, makeStyles } from '@material-ui/core'
+import Page from 'src/components/Page'
+import Profile from './Profile'
+import ProfileDetails from './ProfileDetails'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3),
   },
-}));
+}))
 
-const Account = () => {
-  const classes = useStyles();
+const Account: React.FC = () => {
+  const classes = useStyles()
 
   return (
     <Page className={classes.root} title="Account">
@@ -29,7 +29,7 @@ const Account = () => {
         </Grid>
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default Account;
+export default Account

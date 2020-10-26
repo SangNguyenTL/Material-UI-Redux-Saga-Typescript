@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 import {
   Box,
   Button,
@@ -10,32 +10,34 @@ import {
   Divider,
   TextField,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {},
-});
+})
 
 type PasswordProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Password: React.FC<PasswordProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const Password: React.FC<PasswordProps> = ({ className }) => {
+  const classes = useStyles()
   const [values, setValues] = useState({
     password: '',
     confirm: '',
-  });
+  })
 
-  const handleChange = (event: any) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setValues({
       ...values,
       [event.target.name]: event.target.value,
-    });
-  };
+    })
+  }
 
   return (
-    <form className={clsx(classes.root, className)} {...rest}>
+    <form className={clsx(classes.root, className)}>
       <Card>
         <CardHeader subheader="Update password" title="Password" />
         <Divider />
@@ -69,7 +71,7 @@ const Password: React.FC<PasswordProps> = ({ className, ...rest }) => {
         </Box>
       </Card>
     </form>
-  );
-};
+  )
+}
 
-export default Password;
+export default Password

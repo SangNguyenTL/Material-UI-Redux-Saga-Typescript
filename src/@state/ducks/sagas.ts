@@ -1,10 +1,12 @@
-import { fork, all } from 'redux-saga/effects';
-import customerSaga from './customer/sagas';
+import { fork, all, AllEffect, ForkEffect } from 'redux-saga/effects'
+import customerSaga from './customer/sagas'
 
 // We `fork()` these tasks so they execute in the background.
-export function* rootSagas() {
+export function* rootSagas(): Generator<AllEffect<ForkEffect>> {
   yield all([
     fork(customerSaga),
     // `fork()` any other store sagas down here...
-  ]);
+  ])
 }
+
+export default rootSagas

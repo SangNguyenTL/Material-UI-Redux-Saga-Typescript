@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   Grid,
   Typography,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {},
@@ -21,19 +21,22 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
   },
-});
+})
 
 type NotificationsProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Notifications: React.FC<NotificationsProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const Notifications: React.FC<NotificationsProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <form className={clsx(classes.root, className)} {...rest}>
+    <form className={clsx(classes.root, className)}>
       <Card>
-        <CardHeader subheader="Manage the notifications" title="Notifications" />
+        <CardHeader
+          subheader="Manage the notifications"
+          title="Notifications"
+        />
         <Divider />
         <CardContent>
           <Grid container spacing={6} wrap="wrap">
@@ -41,18 +44,36 @@ const Notifications: React.FC<NotificationsProps> = ({ className, ...rest }) => 
               <Typography color="textPrimary" gutterBottom variant="h6">
                 Notifications
               </Typography>
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Email" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Push Notifications" />
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Email"
+              />
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Push Notifications"
+              />
               <FormControlLabel control={<Checkbox />} label="Text Messages" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Phone calls" />
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Phone calls"
+              />
             </Grid>
             <Grid className={classes.item} item md={4} sm={6} xs={12}>
               <Typography color="textPrimary" gutterBottom variant="h6">
                 Messages
               </Typography>
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Email" />
-              <FormControlLabel control={<Checkbox />} label="Push Notifications" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Phone calls" />
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Email"
+              />
+              <FormControlLabel
+                control={<Checkbox />}
+                label="Push Notifications"
+              />
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Phone calls"
+              />
             </Grid>
           </Grid>
         </CardContent>
@@ -64,7 +85,7 @@ const Notifications: React.FC<NotificationsProps> = ({ className, ...rest }) => 
         </Box>
       </Card>
     </form>
-  );
-};
+  )
+}
 
-export default Notifications;
+export default Notifications

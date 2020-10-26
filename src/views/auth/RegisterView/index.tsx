@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
+import React from 'react'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import * as Yup from 'yup'
+import { Formik } from 'formik'
 import {
   Box,
   Button,
@@ -12,8 +12,8 @@ import {
   TextField,
   Typography,
   makeStyles,
-} from '@material-ui/core';
-import Page from 'src/components/Page';
+} from '@material-ui/core'
+import Page from 'src/components/Page'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,15 +22,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3),
   },
-}));
+}))
 
-const RegisterView = () => {
-  const classes = useStyles();
-  const navigate = useNavigate();
+const RegisterView: React.FC = () => {
+  const classes = useStyles()
+  const navigate = useNavigate()
 
   return (
     <Page className={classes.root} title="Register">
-      <Box display="flex" flexDirection="column" height="100%" justifyContent="center">
+      <Box
+        display="flex"
+        flexDirection="column"
+        height="100%"
+        justifyContent="center"
+      >
         <Container maxWidth="sm">
           <Formik
             initialValues={{
@@ -45,13 +50,15 @@ const RegisterView = () => {
                 .email('Must be a valid email')
                 .max(255)
                 .required('Email is required'),
-              firstName: Yup.string().max(255).required('First name is required'),
+              firstName: Yup.string()
+                .max(255)
+                .required('First name is required'),
               lastName: Yup.string().max(255).required('Last name is required'),
               password: Yup.string().max(255).required('password is required'),
               policy: Yup.boolean().oneOf([true], 'This field must be checked'),
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              navigate('/app/dashboard', { replace: true })
             }}
           >
             {({
@@ -68,7 +75,11 @@ const RegisterView = () => {
                   <Typography color="textPrimary" variant="h2">
                     Create new account
                   </Typography>
-                  <Typography color="textSecondary" gutterBottom variant="body2">
+                  <Typography
+                    color="textSecondary"
+                    gutterBottom
+                    variant="body2"
+                  >
                     Use your email to create new account
                   </Typography>
                 </Box>
@@ -123,13 +134,17 @@ const RegisterView = () => {
                   variant="outlined"
                 />
                 <Box alignItems="center" display="flex" ml={-1}>
-                  <Checkbox checked={values.policy} name="policy" onChange={handleChange} />
+                  <Checkbox
+                    checked={values.policy}
+                    name="policy"
+                    onChange={handleChange}
+                  />
                   <Typography color="textSecondary" variant="body1">
                     I have read the{' '}
                     <Link
                       color="primary"
                       component={RouterLink}
-                      to="#"
+                      to="/"
                       underline="always"
                       variant="h6"
                     >
@@ -164,7 +179,7 @@ const RegisterView = () => {
         </Container>
       </Box>
     </Page>
-  );
-};
+  )
+}
 
-export default RegisterView;
+export default RegisterView

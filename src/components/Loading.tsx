@@ -1,6 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { LinearProgress } from '@material-ui/core';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { LinearProgress } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
   box: {
     width: '300px',
   },
-}));
+}))
 
-export default function Loadding() {
-  const classes = useStyles();
+export default function Loadding(): JSX.Element {
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
@@ -26,5 +26,5 @@ export default function Loadding() {
         <LinearProgress />
       </div>
     </div>
-  );
+  )
 }

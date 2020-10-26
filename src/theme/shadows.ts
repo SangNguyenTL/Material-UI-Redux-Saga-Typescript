@@ -1,4 +1,4 @@
-import { Shadows } from '@material-ui/core/styles/shadows';
+import { Shadows } from '@material-ui/core/styles/shadows'
 
 const shadows: Shadows = [
   'none',
@@ -26,6 +26,6 @@ const shadows: Shadows = [
   '0 0 1px 0 rgba(0,0,0,0.31), 0 20px 32px -8px rgba(0,0,0,0.25)',
   '0 0 1px 0 rgba(0,0,0,0.31), 0 22px 34px -8px rgba(0,0,0,0.25)',
   '0 0 1px 0 rgba(0,0,0,0.31), 0 24px 36px -8px rgba(0,0,0,0.25)',
-];
+]
 
-export default shadows;
+export default shadows

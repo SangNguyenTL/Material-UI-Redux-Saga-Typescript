@@ -1,7 +1,7 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
-import { Bar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2'
 import {
   Box,
   Button,
@@ -12,22 +12,22 @@ import {
   useTheme,
   makeStyles,
   colors,
-} from '@material-ui/core';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { ChartOptions } from 'chart.js';
+} from '@material-ui/core'
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight'
+import { ChartOptions } from 'chart.js'
 
 const useStyles = makeStyles(() => ({
   root: {},
-}));
+}))
 
 export type SalesProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Sales: React.FC<SalesProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
-  const theme = useTheme();
+const Sales: React.FC<SalesProps> = ({ className }) => {
+  const classes = useStyles()
+  const theme = useTheme()
 
   const data = {
     datasets: [
@@ -43,7 +43,7 @@ const Sales: React.FC<SalesProps> = ({ className, ...rest }) => {
       },
     ],
     labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug'],
-  };
+  }
 
   const options: ChartOptions = {
     layout: { padding: 0 },
@@ -92,10 +92,10 @@ const Sales: React.FC<SalesProps> = ({ className, ...rest }) => {
       mode: 'index',
       titleFontColor: theme.palette.text.primary,
     },
-  };
+  }
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardHeader
         action={
           <Button endIcon={<ArrowDropDownIcon />} size="small" variant="text">
@@ -112,12 +112,17 @@ const Sales: React.FC<SalesProps> = ({ className, ...rest }) => {
       </CardContent>
       <Divider />
       <Box display="flex" justifyContent="flex-end" p={2}>
-        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
+        <Button
+          color="primary"
+          endIcon={<ArrowRightIcon />}
+          size="small"
+          variant="text"
+        >
           Overview
         </Button>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default Sales;
+export default Sales

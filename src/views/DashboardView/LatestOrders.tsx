@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import moment from 'moment';
-import { v4 as uuid } from 'uuid';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import React, { useState } from 'react'
+import clsx from 'clsx'
+import moment from 'moment'
+import { v4 as uuid } from 'uuid'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 import {
   Box,
@@ -19,8 +19,8 @@ import {
   TableSortLabel,
   Tooltip,
   makeStyles,
-} from '@material-ui/core';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+} from '@material-ui/core'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 
 const data = [
   {
@@ -83,25 +83,25 @@ const data = [
     createdAt: 1554670800000,
     status: 'delivered',
   },
-];
+]
 
 const useStyles = makeStyles(() => ({
   root: {},
   actions: {
     justifyContent: 'flex-end',
   },
-}));
+}))
 
 type LatestOrdersProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const LatestOrders: React.FC<LatestOrdersProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
-  const [orders] = useState(data);
+const LatestOrders: React.FC<LatestOrdersProps> = ({ className }) => {
+  const classes = useStyles()
+  const [orders] = useState(data)
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardHeader title="Latest Orders" />
       <Divider />
       <PerfectScrollbar>
@@ -126,7 +126,9 @@ const LatestOrders: React.FC<LatestOrdersProps> = ({ className, ...rest }) => {
                 <TableRow hover key={order.id}>
                   <TableCell>{order.ref}</TableCell>
                   <TableCell>{order.customer.name}</TableCell>
-                  <TableCell>{moment(order.createdAt).format('DD/MM/YYYY')}</TableCell>
+                  <TableCell>
+                    {moment(order.createdAt).format('DD/MM/YYYY')}
+                  </TableCell>
                   <TableCell>
                     <Chip color="primary" label={order.status} size="small" />
                   </TableCell>
@@ -137,12 +139,17 @@ const LatestOrders: React.FC<LatestOrdersProps> = ({ className, ...rest }) => {
         </Box>
       </PerfectScrollbar>
       <Box display="flex" justifyContent="flex-end" p={2}>
-        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
+        <Button
+          color="primary"
+          endIcon={<ArrowRightIcon />}
+          size="small"
+          variant="text"
+        >
           View all
         </Button>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default LatestOrders;
+export default LatestOrders

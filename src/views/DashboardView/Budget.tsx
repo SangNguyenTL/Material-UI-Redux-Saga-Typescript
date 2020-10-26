@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
 import {
   Avatar,
@@ -10,9 +10,9 @@ import {
   Typography,
   colors,
   makeStyles,
-} from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
+} from '@material-ui/core'
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import MoneyIcon from '@material-ui/icons/Money'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,17 +30,17 @@ const useStyles = makeStyles((theme) => ({
     color: colors.red[900],
     marginRight: theme.spacing(1),
   },
-}));
+}))
 
 type BudgetProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Budget: React.FC<BudgetProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const Budget: React.FC<BudgetProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Grid container justify="space-between" spacing={3}>
           <Grid item>
@@ -68,7 +68,7 @@ const Budget: React.FC<BudgetProps> = ({ className, ...rest }) => {
         </Box>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default Budget;
+export default Budget

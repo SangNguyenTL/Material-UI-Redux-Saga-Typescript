@@ -1,15 +1,15 @@
-import React from 'react';
-import { NavLink as RouterLink } from 'react-router-dom';
-import clsx from 'clsx';
-import { Button, ListItem, makeStyles } from '@material-ui/core';
-import { Icon } from 'react-feather';
+import React from 'react'
+import { NavLink as RouterLink } from 'react-router-dom'
+import clsx from 'clsx'
+import { Button, ListItem, makeStyles } from '@material-ui/core'
+import { Icon } from 'react-feather'
 
 export type NavItemProps = {
-  href: string;
-  title?: string;
-  className?: string;
-  icon?: Icon;
-};
+  href: string
+  title?: string
+  className?: string
+  icon?: Icon
+}
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -41,24 +41,29 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main,
     },
   },
-}));
+}))
 
-const NavItem: React.FC<NavItemProps> = ({ className, href, icon: Icon, title, ...rest }) => {
-  const classes = useStyles();
+const NavItem: React.FC<NavItemProps> = ({
+  className,
+  href,
+  icon: IconComponent,
+  title,
+}) => {
+  const classes = useStyles()
 
   return (
-    <ListItem className={clsx(classes.item, className)} disableGutters {...rest}>
+    <ListItem className={clsx(classes.item, className)} disableGutters>
       <Button
         activeClassName={classes.active}
         className={classes.button}
         component={RouterLink}
         to={href}
       >
-        {Icon && <Icon className={classes.icon} size="20" />}
+        {IconComponent && <IconComponent className={classes.icon} size="20" />}
         <span className={classes.title}>{title}</span>
       </Button>
     </ListItem>
-  );
-};
+  )
+}
 
-export default NavItem;
+export default NavItem

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
+import React, { useState } from 'react'
+import clsx from 'clsx'
 
-import { v4 as uuid } from 'uuid';
-import moment from 'moment';
+import { v4 as uuid } from 'uuid'
+import moment from 'moment'
 import {
   Box,
   Button,
@@ -15,9 +15,9 @@ import {
   ListItemAvatar,
   ListItemText,
   makeStyles,
-} from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+} from '@material-ui/core'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 
 const data = [
   {
@@ -50,7 +50,7 @@ const data = [
     imageUrl: '/static/images/products/product_5.png',
     updatedAt: moment().subtract(9, 'hours'),
   },
-];
+]
 
 const useStyles = makeStyles({
   root: {
@@ -60,25 +60,32 @@ const useStyles = makeStyles({
     height: 48,
     width: 48,
   },
-});
+})
 
 type LatestProductsProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const LatestProducts: React.FC<LatestProductsProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
-  const [products] = useState(data);
+const LatestProducts: React.FC<LatestProductsProps> = ({ className }) => {
+  const classes = useStyles()
+  const [products] = useState(data)
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
-      <CardHeader subtitle={`${products.length} in total`} title="Latest Products" />
+    <Card className={clsx(classes.root, className)}>
+      <CardHeader
+        subtitle={`${products.length} in total`}
+        title="Latest Products"
+      />
       <Divider />
       <List>
         {products.map((product, i) => (
           <ListItem divider={i < products.length - 1} key={product.id}>
             <ListItemAvatar>
-              <img alt="Product" className={classes.image} src={product.imageUrl} />
+              <img
+                alt="Product"
+                className={classes.image}
+                src={product.imageUrl}
+              />
             </ListItemAvatar>
             <ListItemText
               primary={product.name}
@@ -92,12 +99,17 @@ const LatestProducts: React.FC<LatestProductsProps> = ({ className, ...rest }) =
       </List>
       <Divider />
       <Box display="flex" justifyContent="flex-end" p={2}>
-        <Button color="primary" endIcon={<ArrowRightIcon />} size="small" variant="text">
+        <Button
+          color="primary"
+          endIcon={<ArrowRightIcon />}
+          size="small"
+          variant="text"
+        >
           View all
         </Button>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default LatestProducts;
+export default LatestProducts

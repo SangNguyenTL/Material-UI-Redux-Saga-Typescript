@@ -1,26 +1,26 @@
-export const FETCH_DETAILS = 'customer/details';
-export const FETCH_DETAILS_SUCCESS = 'customer/details_success';
-export const FETCH_DETAILS_FAILED = 'customer/details_failed';
+export const FETCH_DETAILS = 'customer/details'
+export const FETCH_DETAILS_SUCCESS = 'customer/details_success'
+export const FETCH_DETAILS_FAILED = 'customer/details_failed'
 
-export const FETCH_LIST = 'customer/list';
-export const FETCH_LIST_SUCCESS = 'customer/list_success';
-export const FETCH_LIST_FAILED = 'customer/list_failed';
+export const FETCH_LIST = 'customer/list'
+export const FETCH_LIST_SUCCESS = 'customer/list_success'
+export const FETCH_LIST_FAILED = 'customer/list_failed'
 
-export const CREATE = 'customer/create';
-export const CREATE_SUCCESS = 'customer/create_success';
-export const CREATE_FAILED = 'customer/create_failed';
+export const CREATE = 'customer/create'
+export const CREATE_SUCCESS = 'customer/create_success'
+export const CREATE_FAILED = 'customer/create_failed'
 
-export const UPDATE = 'customer/update';
-export const UPDATE_SUCCESS = 'customer/update_success';
-export const UPDATE_FAILED = 'customer/update_failed';
+export const UPDATE = 'customer/update'
+export const UPDATE_SUCCESS = 'customer/update_success'
+export const UPDATE_FAILED = 'customer/update_failed'
 
-export const DELETE = 'customer/detele';
-export const DELETE_SUCCESS = 'customer/detele_success';
-export const DELETE_FAILED = 'customer/detele_failed';
+export const DELETE = 'customer/detele'
+export const DELETE_SUCCESS = 'customer/detele_success'
+export const DELETE_FAILED = 'customer/detele_failed'
 
-export const BULK = 'customer/bulk';
-export const BULK_SUCCESS = 'customer/bulk_success';
-export const BULK_FAILED = 'customer/bulk_failed';
+export const BULK = 'customer/bulk'
+export const BULK_SUCCESS = 'customer/bulk_success'
+export const BULK_FAILED = 'customer/bulk_failed'
 
 export type CustomerAction =
   | typeof FETCH_DETAILS
@@ -40,4 +40,4 @@ export type CustomerAction =
   | typeof DELETE_SUCCESS
   | typeof BULK
   | typeof BULK_FAILED
-  | typeof BULK_SUCCESS;
+  | typeof BULK_SUCCESS

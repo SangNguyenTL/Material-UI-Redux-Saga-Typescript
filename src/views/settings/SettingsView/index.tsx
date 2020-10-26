@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Container, makeStyles } from '@material-ui/core';
-import Page from 'src/components/Page';
-import Notifications from './Notifications';
-import Password from './Password';
+import React from 'react'
+import { Box, Container, makeStyles } from '@material-ui/core'
+import Page from 'src/components/Page'
+import Notifications from './Notifications'
+import Password from './Password'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3),
   },
-}));
+}))
 
-const SettingsView = () => {
-  const classes = useStyles();
+const SettingsView: React.FC = () => {
+  const classes = useStyles()
 
   return (
     <Page className={classes.root} title="Settings">
@@ -25,7 +25,7 @@ const SettingsView = () => {
         </Box>
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default SettingsView;
+export default SettingsView

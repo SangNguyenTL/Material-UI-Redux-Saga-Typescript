@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import clsx from 'clsx';
-import moment from 'moment';
+import clsx from 'clsx'
+import moment from 'moment'
 import {
   Avatar,
   Box,
@@ -12,7 +12,7 @@ import {
   Divider,
   Typography,
   makeStyles,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
@@ -21,7 +21,7 @@ const user = {
   jobTitle: 'Senior Developer',
   name: 'Katarina Smith',
   timezone: 'GTM-7',
-};
+}
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -29,17 +29,17 @@ const useStyles = makeStyles(() => ({
     height: 100,
     width: 100,
   },
-}));
+}))
 
 export type ProfileProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const Profile: React.FC<ProfileProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const Profile: React.FC<ProfileProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Box alignItems="center" display="flex" flexDirection="column">
           <Avatar className={classes.avatar} src={user.avatar} />
@@ -61,7 +61,7 @@ const Profile: React.FC<ProfileProps> = ({ className, ...rest }) => {
         </Button>
       </CardActions>
     </Card>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

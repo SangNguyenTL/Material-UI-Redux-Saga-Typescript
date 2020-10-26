@@ -1,2 +1,2 @@
-export { rootReducers } from './reducers';
-export { rootSagas } from './sagas';
+export { rootReducers } from './reducers'
+export { rootSagas } from './sagas'

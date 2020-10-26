@@ -1,7 +1,15 @@
-import React from 'react';
-import clsx from 'clsx';
-import { Avatar, Card, CardContent, Grid, Typography, makeStyles, colors } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import React from 'react'
+import clsx from 'clsx'
+import {
+  Avatar,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  makeStyles,
+  colors,
+} from '@material-ui/core'
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -12,17 +20,17 @@ const useStyles = makeStyles(() => ({
     height: 56,
     width: 56,
   },
-}));
+}))
 
 type TotalProfitProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const TotalProfit: React.FC<TotalProfitProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const TotalProfit: React.FC<TotalProfitProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Grid container justify="space-between" spacing={3}>
           <Grid item>
@@ -41,7 +49,7 @@ const TotalProfit: React.FC<TotalProfitProps> = ({ className, ...rest }) => {
         </Grid>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default TotalProfit;
+export default TotalProfit

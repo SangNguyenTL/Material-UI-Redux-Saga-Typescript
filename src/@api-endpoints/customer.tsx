@@ -5,6 +5,6 @@ const CUSTOMER = {
   Update: '/customers/{id}',
   Delete: '/customers/{id}',
   Bulk: '/customers',
-};
+}
 
-export default CUSTOMER;
+export default CUSTOMER

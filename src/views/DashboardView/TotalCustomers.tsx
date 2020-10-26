@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from 'react'
+import clsx from 'clsx'
 
 import {
   Avatar,
@@ -10,9 +10,9 @@ import {
   Typography,
   colors,
   makeStyles,
-} from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+} from '@material-ui/core'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
+import PeopleIcon from '@material-ui/icons/PeopleOutlined'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,17 +30,17 @@ const useStyles = makeStyles((theme) => ({
     color: colors.green[900],
     marginRight: theme.spacing(1),
   },
-}));
+}))
 
 type TotalCustomersProps = {
-  className?: string;
-};
+  className?: string
+}
 
-const TotalCustomers: React.FC<TotalCustomersProps> = ({ className, ...rest }) => {
-  const classes = useStyles();
+const TotalCustomers: React.FC<TotalCustomersProps> = ({ className }) => {
+  const classes = useStyles()
 
   return (
-    <Card className={clsx(classes.root, className)} {...rest}>
+    <Card className={clsx(classes.root, className)}>
       <CardContent>
         <Grid container justify="space-between" spacing={3}>
           <Grid item>
@@ -68,7 +68,7 @@ const TotalCustomers: React.FC<TotalCustomersProps> = ({ className, ...rest }) =
         </Box>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default TotalCustomers;
+export default TotalCustomers

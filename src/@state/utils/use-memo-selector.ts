@@ -4,7 +4,7 @@ import { OutputSelector } from 'reselect'
 import { StateAll } from '../ducks/models'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const useMemoSelector = <R, C>(
+const useMemoSelector = <R, C>(
   outputSelector: OutputSelector<StateAll, R, C>
 ) => {
   const memoSelector = useMemo(() => {

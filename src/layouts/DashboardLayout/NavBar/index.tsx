@@ -12,22 +12,15 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import {
-  AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
-  Lock as LockIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
-  UserPlus as UserPlusIcon,
   Users as UsersIcon,
 } from 'react-feather'
+import useMemoSelector from 'src/@state/utils/use-memo-selector'
+import userSelectors from 'src/@state/ducks/user/selectors'
 import NavItem from './NavItem'
-
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith',
-}
 
 const items = [
   {
@@ -54,21 +47,6 @@ const items = [
     href: '/app/settings',
     icon: SettingsIcon,
     title: 'Settings',
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login',
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register',
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error',
   },
 ]
 
@@ -97,6 +75,10 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileClose, openMobile }) => {
   const classes = useStyles()
   const location = useLocation()
 
+  const {
+    profile: { data: user },
+  } = useMemoSelector(userSelectors.root)
+
   useEffect(() => {
     if (openMobile && onMobileClose) {
       onMobileClose()
@@ -109,14 +91,14 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileClose, openMobile }) => {
         <Avatar
           className={classes.avatar}
           component={RouterLink}
-          src={user.avatar}
+          src={user?.avatar}
           to="/app/account"
         />
         <Typography color="textPrimary" variant="h5">
-          {user.name}
+          {[user?.firstName, user?.lastName].filter(Boolean).join(' ')}
         </Typography>
         <Typography color="textSecondary" variant="body2">
-          {user.jobTitle}
+          {user?.role.name}
         </Typography>
       </Box>
       <Divider />

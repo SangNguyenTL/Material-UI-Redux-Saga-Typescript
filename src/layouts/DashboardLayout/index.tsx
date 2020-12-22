@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useCallback, useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import { Outlet, useNavigate } from 'react-router-dom'
+import authSelectors from 'src/@state/ducks/auth/selectors'
+import userAction from 'src/@state/ducks/user/actions'
+import userSelectors from 'src/@state/ducks/user/selectors'
+import useMemoSelector from 'src/@state/utils/use-memo-selector'
 import NavBar from './NavBar'
 import TopBar from './TopBar'
 
@@ -35,7 +40,25 @@ const useStyles = makeStyles((theme) => ({
 
 const DashboardLayout: React.FC = () => {
   const classes = useStyles()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { isLogged } = useMemoSelector(authSelectors.root)
   const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+  const {
+    profile: { data: user },
+  } = useMemoSelector(userSelectors.root)
+
+  const fetchProfile = useCallback(() => {
+    dispatch(userAction.profile.request())
+  }, [dispatch])
+
+  useEffect(() => {
+    if (!user) fetchProfile()
+  }, [user, fetchProfile])
+
+  useEffect(() => {
+    if (!isLogged) navigate('/login')
+  }, [isLogged, navigate])
 
   return (
     <div className={classes.root}>

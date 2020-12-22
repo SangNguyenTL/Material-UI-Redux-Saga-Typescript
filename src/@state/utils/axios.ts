@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import storage from './localStorage'
 
-const baseURL = process.env.REACT_APP_API_ENDPOINT || 'http://localhost/api'
+const baseURL =
+  process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_API_ENDPOINT
+    : 'http://localhost:3000'
 const timeout = (process.env.REACT_APP_API_TIME_OUT as unknown) as number
 
-export const axiosInstance = Axios.create({
+const headers: Record<string, string | null> = {}
+const token = storage.getToken()
+if (storage.getToken()) headers['x-access-token'] = token
+
+const axiosInstance = Axios.create({
   baseURL,
   timeout,
+  headers,
 })
 
 const requestHandler = (request: AxiosRequestConfig) => {
@@ -47,9 +56,6 @@ const successHandler = (response: AxiosResponse) => {
 }
 
 axiosInstance.interceptors.request.use((request) => requestHandler(request))
-axiosInstance.interceptors.response.use(
-  (response) => successHandler(response),
-  (error) => errorHandler(error)
-)
+axiosInstance.interceptors.response.use(successHandler, errorHandler)
 
 export default axiosInstance

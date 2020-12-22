@@ -1,31 +1,28 @@
-import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import Loadding from './Loading'
 
 export type PageProps = {
   title?: string
   children: React.ReactNode
-  className: string
+  className?: string
+  loading?: boolean
 }
 
-const useStyles = makeStyles(() => ({
-  root: {
-    height: '100%',
-  },
-}))
-
-const Page = React.forwardRef<HTMLDivElement, PageProps>(
-  ({ children, title = '' }, ref) => {
-    const styles = useStyles()
-    return (
-      <div className={styles.root} ref={ref}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-        {children}
-      </div>
-    )
-  }
-)
+const Page: React.FC<PageProps> = ({
+  loading,
+  className,
+  children,
+  title = '',
+}) => {
+  return (
+    <div className={className}>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
+      {!loading ? children : <Loadding />}
+    </div>
+  )
+}
 
 export default Page

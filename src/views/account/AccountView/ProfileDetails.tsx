@@ -12,6 +12,7 @@ import {
   TextField,
   makeStyles,
 } from '@material-ui/core'
+import { IUser } from 'src/@state/api-models/user'
 
 const states = [
   {
@@ -34,18 +35,12 @@ const useStyles = makeStyles(() => ({
 
 export type ProfileDetailsProps = {
   className?: string
+  data: IUser
 }
 
-const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className }) => {
+const ProfileDetails: React.FC<ProfileDetailsProps> = ({ className, data }) => {
   const classes = useStyles()
-  const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
-    email: 'demo@devias.io',
-    phone: '',
-    state: 'Alabama',
-    country: 'USA',
-  })
+  const [values, setValues] = useState<IUser>(data)
 
   const handleChange = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>

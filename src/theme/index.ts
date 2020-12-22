@@ -5,22 +5,42 @@ import typography from './typography'
 const theme = createMuiTheme({
   palette: {
     background: {
-      default: colors.common.white,
-      paper: colors.common.white,
+      default: colors.deepPurple[800],
+      paper: '#310862',
     },
     primary: {
-      main: colors.indigo[500],
+      main: colors.yellow[700],
     },
     secondary: {
-      main: colors.indigo[500],
+      main: colors.deepPurple[800],
     },
     text: {
-      primary: colors.blueGrey[900],
-      secondary: colors.blueGrey[600],
+      primary: colors.yellow[700],
+      secondary: colors.common.white,
     },
   },
   shadows,
   typography,
+  overrides: {
+    MuiOutlinedInput: {
+      notchedOutline: {
+        borderColor: colors.yellow[700],
+      },
+      root: {
+        borderRadius: '2px',
+      },
+    },
+    MuiCheckbox: {
+      root: {
+        '&checked': {
+          color: colors.amber[700],
+        },
+      },
+      colorPrimary: {
+        color: colors.amber[700],
+      },
+    },
+  },
 })
 
 export default theme

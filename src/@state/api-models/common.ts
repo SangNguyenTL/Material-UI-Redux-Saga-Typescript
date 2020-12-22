@@ -15,11 +15,14 @@ export type Error = { code: string; message: string }
 
 export type CommonRequest = {}
 
-export type CommonResponse = {
+export type CommonResponse<T = never> = {
+  statusCode: number
   message?: string
   success: boolean
-  errors?: Error[]
+  data: T
 }
+
+export type ErrorResponseData = {}
 
 export type PaginationRequest = {
   page?: number

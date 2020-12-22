@@ -2,7 +2,8 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 const DashboardLayout = React.lazy(() => import('src/layouts/DashboardLayout'))
-const MainLayout = React.lazy(() => import('src/layouts/MainLayout'))
+// const MainLayout = React.lazy(() => import('src/layouts/MainLayout'))
+const BlankLayout = React.lazy(() => import('src/layouts/BlankLayout'))
 const AccountView = React.lazy(() => import('src/views/account/AccountView'))
 const CustomerListView = React.lazy(
   () => import('src/views/customer/CustomerListView')
@@ -31,7 +32,7 @@ const routes = [
   },
   {
     path: '/',
-    element: <MainLayout />,
+    element: <BlankLayout />,
     children: [
       { path: 'login', element: <LoginView /> },
       { path: 'register', element: <RegisterView /> },
